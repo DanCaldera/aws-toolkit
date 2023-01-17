@@ -1,0 +1,12 @@
+Copia en el portapapeles
+
+0 8 12 */3 * sudo certbot renew --quiet
+10 8 12 */3 * sudo certbot renew --quiet
+20 8 12 */3 * sudo service nginx stop
+
+Corre el crontab
+sudo crontab -e
+
+Pega
+
+Guarda y sal, Listo!

@@ -1,0 +1,42 @@
+#!/bin/bash
+
+Create the sites-enabled folder. Go to the Nginx folder:
+$ cd /etc/nginx
+Then create the folder:
+$ sudo mkdir sites-enabled
+Also in the Nginx folder, open nginx.conf file:
+$ sudo vim nginx.conf
+And inside http add the following line:
+include /etc/nginx/sites-enabled/*;
+Now cd into sites-enabled and create a default file:
+$ sudo touch default
+Then open the default file:
+$ sudo vim default
+Paste the following Nginx configuration and save it:
+server {
+   listen         80 default_server;
+   listen         [::]:80 default_server;
+   server_name    localhost;
+   root           /usr/share/nginx/html;
+location / {
+       proxy_pass http://127.0.0.1:<YOUR PORT>;
+       proxy_http_version 1.1;
+       proxy_set_header Upgrade $http_upgrade;
+       proxy_set_header Connection 'upgrade';
+       proxy_set_header Host $host;
+       proxy_cache_bypass $http_upgrade;
+   }
+}
+Now restart the Nginx server to apply the changes:
+$ sudo service nginx restart
+
+api.playground.com.mx
+
+
+extras:
+
+http: {
+...
+client_max_body_size 100M;
+...
+}

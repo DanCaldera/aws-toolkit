@@ -1,0 +1,13 @@
+Agrega el siguiente código en esta dirección sudo vim /etc/yum.repos.d/nginx.repo
+
+[nginx]
+name=nginx repo
+baseurl=https://nginx.org/packages/centos/7/$basearch/
+gpgcheck=0
+enabled=1
+
+por último instala nginx con el comando sudo yum install nginx
+
+Verifica tu versión con nginx -v
+
+Inicia Nginx con sudo service nginx start
