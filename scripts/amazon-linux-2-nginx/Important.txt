@@ -29,5 +29,10 @@ use this
 rm ~/.ssh/known_hosts
 
 
-# set client body size to 2M #
-client_max_body_size 2M;
+# Change max body size in #
+
+http: {
+...
+client_max_body_size 100M;
+...
+}
