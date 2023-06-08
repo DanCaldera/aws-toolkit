@@ -5,7 +5,7 @@ echo Recuerda tener tu dominio registrado en el DNS con A Record apuntando con e
 echo Detener nginx para poder comenzar con el registro de ssl
 sudo systemctl stop nginx
 
-echo Instalando python certbot nginx
+echo Instalando 
 sudo wget -r --no-parent -A 'epel-release-*.rpm' https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/
 sudo rpm -Uvh dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-*.rpm
 sudo yum-config-manager --enable epel*
@@ -17,7 +17,7 @@ read my_domain_name
 sudo certbot certonly --standalone --debug -d $my_domain_name
 
 echo Creando nuevo archivo de configuración de nginx
-sudo mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak
+# sudo mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak
 sudo touch /etc/nginx/conf.d/server.conf
 
 echo Escribe el puerto donde está corriendo tu aplicacion

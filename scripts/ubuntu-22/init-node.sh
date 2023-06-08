@@ -17,3 +17,5 @@ npm install -g n
 sudo n stable
 # sudo n latest
 exit
+
+sudo npm i -g pm2
